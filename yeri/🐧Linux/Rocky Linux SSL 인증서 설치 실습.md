@@ -143,6 +143,7 @@ Server: Apache
 
 만약 403 뜨면, `/var/www/html` 하위에 index.html 파일 하나 만들고 다시 콜하면됨
 
+
 로컬 파워쉘에서 Rocky Linux hostname 확인해서 curl 날려보면 나옴! 통신성공!
 
 ```
