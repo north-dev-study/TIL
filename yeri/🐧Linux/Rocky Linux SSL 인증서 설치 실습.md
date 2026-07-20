@@ -90,4 +90,4 @@ ping -c 4 8.8.8.8
 ![](../../assets/Pasted%20image%2020260720212616.png)
 
 
-DNS 확인
+Apache와 SSL 패키지 설치
