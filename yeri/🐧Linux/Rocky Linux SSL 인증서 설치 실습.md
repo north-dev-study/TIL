@@ -31,3 +31,10 @@ Windows 10 Pro     2009
 ```
 systeminfo.exe
 ```
+
+
+2-2. Hyper-V 관리자 열기
+
+```
+virtmgmt.msc
+```
