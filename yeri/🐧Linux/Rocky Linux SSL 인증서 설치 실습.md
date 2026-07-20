@@ -57,3 +57,9 @@ virtmgmt.msc
 
 생성완료 화면
 ![](../../assets/Pasted%20image%2020260720210610.png)
+
+여기서 연결을 누르면 SSO 이미지 연동해놓은거로 열림
+
+![](../../assets/Pasted%20image%2020260720210653.png)
+
+
