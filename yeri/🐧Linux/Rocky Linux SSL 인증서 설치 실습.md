@@ -119,4 +119,4 @@ sudo systemctl status httpd
 
 
 
-
+HTTP와 HTTPS 방화벽 허용
