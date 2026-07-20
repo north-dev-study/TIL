@@ -120,3 +120,25 @@ sudo systemctl status httpd
 
 
 HTTP와 HTTPS 방화벽 허용
+```
+sudo firewall-cmd --permanent --add-service=http
+sudo firewall-cmd --permanent --add-service=https
+sudo firewall-cmd --reload
+```
+
+허용 확인
+```
+sudo firewall-cmd --list-services
+```
+
+
+Rocky Linux 내부에서 Apache 확인
+```
+curl -I http://localhost
+
+정상응답 : 
+HTTP/1.1 200 OK
+Server: Apache
+```
+
+
