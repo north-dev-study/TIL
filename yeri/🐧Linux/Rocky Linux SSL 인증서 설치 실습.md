@@ -55,4 +55,5 @@ virtmgmt.msc
 |가상 디스크|30GB|
 |설치 미디어|Rocky Linux Minimal ISO|
 
-
+생성완료 화면
+![](../../assets/Pasted%20image%2020260720210610.png)
