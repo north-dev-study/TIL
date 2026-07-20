@@ -99,3 +99,16 @@ sudo dnf install -y httpd mod_ssl openssl
 ![](../../assets/Pasted%20image%2020260720212923.png)
 
 
+Apach 띄우고, 부팅시 자동실행 세팅
+- 아파치 시작
+  ```
+  sudo systemctl start httpd
+  ```
+
+- 부팅시 자동실행
+```
+sudo systemctl enable httpd
+```
+
+
+![](../../assets/Pasted%20image%2020260720213340.png)
