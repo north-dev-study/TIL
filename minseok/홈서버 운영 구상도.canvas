@@ -1,0 +1,11 @@
+{
+	"nodes":[
+		{"id":"a1cf51289b6bc0de","x":-900,"y":-1220,"width":400,"height":400,"type":"file","file":"Nginx.md"},
+		{"id":"89cbd381714651b2","type":"file","file":"운영체제.md","x":-940,"y":-300,"width":400,"height":540},
+		{"id":"e6a35a82b4b07ffa","type":"file","file":"Gitea.md","x":-1440,"y":-300,"width":400,"height":400},
+		{"id":"5b71259481f61d22","type":"file","file":"Docker.md","x":-900,"y":-760,"width":400,"height":400},
+		{"id":"9f4ce15dbd82c59b","type":"text","text":"홈 서버","x":-1180,"y":-560,"width":180,"height":100,"color":"1"},
+		{"id":"cb49e95743efe5d1","type":"file","file":"DB.md","x":-1640,"y":-1040,"width":400,"height":660}
+	],
+	"edges":[]
+}
