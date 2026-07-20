@@ -44,3 +44,15 @@ virtmgmt.msc
 
 
 2-3. 가상머신 만들기
+
+|항목|권장값|
+|---|--:|
+|이름|Rocky-SSL-Lab|
+|세대|2세대|
+|메모리|4096MB|
+|동적 메모리|사용|
+|네트워크|Default Switch|
+|가상 디스크|30GB|
+|설치 미디어|Rocky Linux Minimal ISO|
+
+
