@@ -38,3 +38,8 @@ systeminfo.exe
 ```
 virtmgmt.msc
 ```
+
+![](../../assets/Pasted%20image%2020260720205932.png)
+
+
+
