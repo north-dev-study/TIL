@@ -73,7 +73,7 @@ virtmgmt.msc
 - DB 동적 할당 세팅
 -> 이후 재부팅 / VM 에 ISO 이미지 없는거 확인
 
-### 4. 통신 세팅
+### 4. Apach 세팅
 
 IP  주소 확인
 ```
@@ -110,5 +110,13 @@ Apach 띄우고, 부팅시 자동실행 세팅
 sudo systemctl enable httpd
 ```
 
+- 세팅 상태 확인
+```
+sudo systemctl status httpd
+```
 
 ![](../../assets/Pasted%20image%2020260720213340.png)
+
+
+
+
