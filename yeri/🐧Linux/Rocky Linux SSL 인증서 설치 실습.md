@@ -20,5 +20,13 @@ Minimal ISO 다운로드 (실습용) - 서버에 필요한 최소 환경을 설�
 
 
 ```
-Get-ComputerInfo | Select-Object WindowsProductName, WindowsVersion
+PS C:\WINDOWS\system32> Get-ComputerInfo | Select-Object WindowsProductName, WindowsVersion                             
+WindowsProductName WindowsVersion
+------------------ --------------
+Windows 10 Pro     2009
+```
+
+가상화 활성화 체크
+```
+systeminfo.exe
 ```
