@@ -91,3 +91,6 @@ ping -c 4 8.8.8.8
 
 
 Apache와 SSL 패키지 설치
+```
+sudo dnf install -y httpd mod_ssl openssl
+```
