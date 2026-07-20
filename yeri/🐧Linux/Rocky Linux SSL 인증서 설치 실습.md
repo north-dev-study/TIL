@@ -10,8 +10,15 @@ Windows 11
            └─ 테스트 인증서
 ```
 
+**Windows 11 안에 Rocky Linux 가상머신을 만들고**, 그 안에 Apache와 `mod_ssl`을 설치한 뒤 **자체 인증기관(CA)으로 발급한 인증서 두 세트**를 번갈아 적용해 봄
+
 ### 1. rocky linux 다운로드
 https://rockylinux.org/download
 Minimal ISO 다운로드 (실습용) - 서버에 필요한 최소 환경을 설치하는 이미지
 
+### 2. windows11 세팅
 
+
+```
+Get-ComputerInfo | Select-Object WindowsProductName, WindowsVersion
+```
