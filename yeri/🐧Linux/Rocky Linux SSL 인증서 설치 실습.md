@@ -94,3 +94,8 @@ Apache와 SSL 패키지 설치
 ```
 sudo dnf install -y httpd mod_ssl openssl
 ```
+
+설치 후 버전 확인
+![](../../assets/Pasted%20image%2020260720212923.png)
+
+
