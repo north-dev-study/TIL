@@ -141,4 +141,5 @@ HTTP/1.1 200 OK
 Server: Apache
 ```
 
+만약 403 뜨면, `/var/www/html` 하위에 index.html 파일 하나 만들고 다시 콜하면됨
 
