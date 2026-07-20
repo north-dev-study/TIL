@@ -58,7 +58,13 @@ virtmgmt.msc
 생성완료 화면
 ![](../../assets/Pasted%20image%2020260720210610.png)
 
+
+2-4. Rocky Linux 실행
+
 여기서 연결을 누르면 SSO 이미지 연동해놓은거로 열림
 
-![](../../assets/Pasted%20image%2020260720210757.png)
+![](../../assets/Pasted%20image%2020260720211208.png)
 
+
+
+### 3. 
