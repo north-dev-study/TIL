@@ -16,8 +16,9 @@ Windows 11
 https://rockylinux.org/download
 Minimal ISO 다운로드 (실습용) - 서버에 필요한 최소 환경을 설치하는 이미지
 
-### 2. windows11 세팅
+### 2. windows 세팅
 
+2-1. windows 버전 확인
 
 ```
 PS C:\WINDOWS\system32> Get-ComputerInfo | Select-Object WindowsProductName, WindowsVersion                             
