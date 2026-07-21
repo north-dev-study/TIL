@@ -253,4 +253,11 @@ sudo apachectl configtest -> Syntax OK 나오면 정상
 ```
 
 
-Apach
+Apache 재시작
+```
+sudo systemctl restart httpd
+
+상태체크 : sudo systemctl status httpd
+```
+
+
