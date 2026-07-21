@@ -143,6 +143,7 @@ Server: Apache
 
 만약 403 뜨면, `/var/www/html` 하위에 index.html 파일 하나 만들고 다시 콜하면됨
 
+
 로컬 파워쉘에서 Rocky Linux hostname 확인해서 curl 날려보면 나옴! 통신성공!
 
 ```
@@ -150,3 +151,128 @@ curl.exe -I http://[hostname]
 ```
 
 ![](../../assets/Pasted%20image%2020260720214354.png)
+
+
+
+
+### 5. HTTPS 실행
+
+**5-1. hosts 파일에 도메인 추가**
+위치 : `C:\Windows\System32\drivers\etc\hosts`
+추가 : `172.21.199.101 research.lab.local`
+
+도메인 적용 확인
+```
+PS C:\Users\poikl> ipconfig /flushdns
+
+Windows IP 구성
+
+DNS 확인자 캐시를 플러시했습니다.
+PS C:\Users\poikl> ping research.lab.local
+
+Ping research.lab.local [172.21.199.101] 32바이트 데이터 사용:
+172.21.199.101의 응답: 바이트=32 시간<1ms TTL=64
+172.21.199.101의 응답: 바이트=32 시간<1ms TTL=64
+172.21.199.101의 응답: 바이트=32 시간=1ms TTL=64
+172.21.199.101의 응답: 바이트=32 시간=1ms TTL=64
+
+172.21.199.101에 대한 Ping 통계:
+    패킷: 보냄 = 4, 받음 = 4, 손실 = 0 (0% 손실),
+왕복 시간(밀리초):
+    최소 = 0ms, 최대 = 1ms, 평균 = 0ms
+PS C:\Users\poikl> curl.exe -I http://research.lab.local
+HTTP/1.1 200 OK
+Date: Tue, 21 Jul 2026 12:51:11 GMT
+Server: Apache/2.4.63 (Rocky Linux) OpenSSL/3.5.5
+Last-Modified: Mon, 20 Jul 2026 12:41:09 GMT
+ETag: "24-6570a3887fdb0"
+Accept-Ranges: bytes
+Content-Length: 36
+Content-Type: text/html; charset=UTF-8
+```
+
+
+
+**5-2. Rocky Linux에서 첫번째 SSL 인증서 생성**
+
+dir 생성
+```
+sudo mkdir -p /etc/pki/tls/research-lab
+cd /etc/pki/tls/research-lab
+```
+
+개인키 / 자체 서명 인증서 생성
+```
+sudo openssl req -x509 -nodes -newkey rsa:2048 \
+  -keyout research-2026.key \
+  -out research-2026.crt \
+  -days 365 \
+  -subj "/C=KR/O=SSL-Lab/CN=research.lab.local" \
+  -addext "subjectAltName=DNS:research.lab.local,IP:172.21.199.101"
+```
+
+생성 성공 화면
+![](../../assets/Pasted%20image%2020260721220043.png)
+
+권한 설정
+```
+sudo chmod 600 research-2026.key
+sudo chmod 644 research-2026.crt
+```
+`600` : 파일의 소유자(Owner)만 읽고(r) 쓸(w) 수 있고, 그룹(Group)이나 다른 사용자(Other)는 아무런 접근도 할 수 없음
+`644` : 소유자만 내용을 수정할 수 있고, 다른 사람들은 내용을 열어보기만 할 수 있도록 허용
+
+
+**5-3. Apache SSL 설정 파일 확인**
+mod_ssl 설치시 기본 설정 파일 생겼는지 확인하는 작업.
+```
+sudo ls -l /etc/httpd/conf.d/ssl.conf
+```
+
+인증서 경로 설정부분도 확인해야함
+```
+sudo grep -nE 'SSLCertificateFile|SSLCertificateKeyFile' /etc/httpd/conf.d/ssl.conf
+```
+![](../../assets/Pasted%20image%2020260721220626.png)
+
+Apache는 `mod_ssl`과 OpenSSL을 통해 HTTPS를 제공하며, 인증서와 개인키는 각각 `SSLCertificateFile`, `SSLCertificateKeyFile` 지시어로 지정한다.
+
+
+
+5-4. ssl.conf 에 인증서 경로 연결
+ssl.conf 내용 수정(아까 인증서 만든 경로로 수정)
+```
+결과 :
+SSLCertificateFile /etc/pki/tls/research-lab/research-2026.crt SSLCertificateKeyFile /etc/pki/tls/research-lab/research-2026.key
+```
+
+
+Apache 설정 검사
+```
+sudo apachectl configtest -> Syntax OK 나오면 정상
+```
+
+
+Apache 재시작
+```
+sudo systemctl restart httpd
+
+상태체크 : sudo systemctl status httpd
+```
+
+
+HTTPS 연결 테스트
+Linux 내부
+```
+curl -k -I https://localhost
+```
+
+
+로컬
+```
+curl.exe -k -I https://research.lab.local
+```
+
+HTTPS 통신 성공 !!
+
+![](../../assets/Pasted%20image%2020260721222237.png)
