@@ -156,3 +156,7 @@ curl.exe -I http://[hostname]
 
 
 ### 5. HTTPS 실행
+
+5-1. hosts 파일에 도메인 추가
+`C:\Windows\System32\drivers\etc\hosts`
+`172.21.199.101 research.lab.local`
