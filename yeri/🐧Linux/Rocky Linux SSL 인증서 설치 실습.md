@@ -239,4 +239,4 @@ Apache는 `mod_ssl`과 OpenSSL을 통해 HTTPS를 제공하며, 인증서와 개
 
 
 
-5-4. 
+5-4. ssl.conf 에 인증서 경로 연결
