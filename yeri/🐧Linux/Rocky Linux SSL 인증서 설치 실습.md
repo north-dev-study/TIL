@@ -262,4 +262,17 @@ sudo systemctl restart httpd
 
 
 HTTPS 연결 테스트
-Linux 
+Linux 내부
+```
+curl -k -I https://localhost
+```
+
+
+로컬
+```
+curl.exe -k -I https://research.lab.local
+```
+
+HTTPS 통신 성공 !!
+
+![](../../assets/Pasted%20image%2020260721222237.png)
