@@ -215,4 +215,11 @@ sudo openssl req -x509 -nodes -newkey rsa:2048 \
 ![](../../assets/Pasted%20image%2020260721220043.png)
 
 권한 설정
-600 : 파일의 **소유자(Owner)만 읽고(r) 쓸(w) 수 있고**, 그룹(Group)이나 다른 사용자(Other)는 **아무런 접근도 할 수 없음**
+```
+sudo chmod 600 research-2026.key
+sudo chmod 644 research-2026.crt
+```
+`600` : 파일의 소유자(Owner)만 읽고(r) 쓸(w) 수 있고, 그룹(Group)이나 다른 사용자(Other)는 아무런 접근도 할 수 없음
+`644` : 소유자만 내용을 수정할 수 있고, 다른 사람들은 내용을 열어보기만 할 수 있도록 허용
+
+
