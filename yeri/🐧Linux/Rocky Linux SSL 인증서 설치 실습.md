@@ -238,3 +238,5 @@ sudo grep -nE 'SSLCertificateFile|SSLCertificateKeyFile' /etc/httpd/conf.d/ssl.c
 Apache는 `mod_ssl`과 OpenSSL을 통해 HTTPS를 제공하며, 인증서와 개인키는 각각 `SSLCertificateFile`, `SSLCertificateKeyFile` 지시어로 지정한다.
 
 
+
+5-4. 
