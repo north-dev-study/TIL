@@ -211,4 +211,8 @@ sudo openssl req -x509 -nodes -newkey rsa:2048 \
   -addext "subjectAltName=DNS:research.lab.local,IP:172.21.199.101"
 ```
 
-생성 성공 
+생성 성공 화면
+![](../../assets/Pasted%20image%2020260721220043.png)
+
+권한 설정
+600 : 파일의 **소유자(Owner)만 읽고(r) 쓸(w) 수 있고**, 그룹(Group)이나 다른 사용자(Other)는 **아무런 접근도 할 수 없음**
