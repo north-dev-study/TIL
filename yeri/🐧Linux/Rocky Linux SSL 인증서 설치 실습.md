@@ -193,7 +193,7 @@ Content-Type: text/html; charset=UTF-8
 
 
 
-5-2. Rocky Linux에서 첫번째 SSL 인증서 생성
+**5-2. Rocky Linux에서 첫번째 SSL 인증서 생성**
 
 dir 생성
 ```
@@ -223,6 +223,16 @@ sudo chmod 644 research-2026.crt
 `644` : 소유자만 내용을 수정할 수 있고, 다른 사람들은 내용을 열어보기만 할 수 있도록 허용
 
 
-5-3. Apache SSL 설정 파일 확인
+**5-3. Apache SSL 설정 파일 확인**
 mod_ssl 설치시 기본 설정 파일 생겼는지 확인하는 작업.
+```
+sudo ls -l /etc/httpd/conf.d/ssl.conf
+```
+
 인증서 경로 설정부분도 확인해야함
+```
+sudo grep -nE 'SSLCertificateFile|SSLCertificateKeyFile' /etc/httpd/conf.d/ssl.conf
+```
+![](../../assets/Pasted%20image%2020260721220626.png)
+
+Apache는 `mod_ssl`과 OpenSSL을 통해 HTTPS를 제공하며, 인증서와 개인키는 각각 `SSLCertificateFile`, `SSLCertificateKeyFile` 지시어로 지정한다.
