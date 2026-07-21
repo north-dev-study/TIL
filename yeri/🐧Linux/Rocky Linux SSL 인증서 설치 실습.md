@@ -151,3 +151,7 @@ curl.exe -I http://[hostname]
 ```
 
 ![](../../assets/Pasted%20image%2020260720214354.png)
+
+
+
+
