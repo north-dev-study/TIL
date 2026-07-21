@@ -240,3 +240,10 @@ Apache는 `mod_ssl`과 OpenSSL을 통해 HTTPS를 제공하며, 인증서와 개
 
 
 5-4. ssl.conf 에 인증서 경로 연결
+ssl.conf 내용 수정(아까 인증서 만든 경로로 수정)
+```
+결과 :
+SSLCertificateFile /etc/pki/tls/research-lab/research-2026.crt SSLCertificateKeyFile /etc/pki/tls/research-lab/research-2026.key
+```
+
+
