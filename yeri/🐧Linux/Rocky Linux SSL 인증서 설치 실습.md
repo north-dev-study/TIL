@@ -157,7 +157,7 @@ curl.exe -I http://[hostname]
 
 ### 5. HTTPS 실행
 
-5-1. hosts 파일에 도메인 추가
+**5-1. hosts 파일에 도메인 추가**
 위치 : `C:\Windows\System32\drivers\etc\hosts`
 추가 : `172.21.199.101 research.lab.local`
 
@@ -236,3 +236,5 @@ sudo grep -nE 'SSLCertificateFile|SSLCertificateKeyFile' /etc/httpd/conf.d/ssl.c
 ![](../../assets/Pasted%20image%2020260721220626.png)
 
 Apache는 `mod_ssl`과 OpenSSL을 통해 HTTPS를 제공하며, 인증서와 개인키는 각각 `SSLCertificateFile`, `SSLCertificateKeyFile` 지시어로 지정한다.
+
+
