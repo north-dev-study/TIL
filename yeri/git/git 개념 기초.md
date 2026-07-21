@@ -25,14 +25,26 @@ git : 분산 **버전관리** 시스템
 Staging Area에 있는 내용을 바탕으로 새로운 버전을 생성
 commit시 특정한 버전명이 생성된다.
 
-commit 과정
-1. HEAD가 가리키고 있던 곳이 새로운 버전의 ㅁ
+**commit 과정**
+1. HEAD가 가리키고 있던 곳이 새로운 버전의 부모가 됨
 2. 커밋된 정보를 반영해 새 버전의 커밋 ID를 결정함
+3. HEAD가 새로운 버전을 가리킴
+
+
+### tracked / untracked
+- tracked : 이전에 한번이라도 add가 된 파일
+- untracked : 한 번도 add가 되지 않은 파일
 
 
 ### 명령어들
 ---
 - git add 로 stage에 올라간 file 취소
 `git reset [file_name]`
+
+
+- main 브랜치로 돌아가기
+`git checkout main`
+`git checkout [@main의 commit_id]`
+
 
 
