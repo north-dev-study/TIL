@@ -195,3 +195,20 @@ Content-Type: text/html; charset=UTF-8
 
 5-2. Rocky Linux에서 첫번째 SSL 인증서 생성
 
+dir 생성
+```
+sudo mkdir -p /etc/pki/tls/research-lab
+cd /etc/pki/tls/research-lab
+```
+
+개인키 / 자체 서명 인증서 생성
+```
+sudo openssl req -x509 -nodes -newkey rsa:2048 \
+  -keyout research-2026.key \
+  -out research-2026.crt \
+  -days 365 \
+  -subj "/C=KR/O=SSL-Lab/CN=research.lab.local" \
+  -addext "subjectAltName=DNS:research.lab.local,IP:172.21.199.101"
+```
+
+생성 성공 
