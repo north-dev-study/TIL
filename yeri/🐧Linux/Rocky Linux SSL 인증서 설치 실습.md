@@ -249,5 +249,8 @@ SSLCertificateFile /etc/pki/tls/research-lab/research-2026.crt SSLCertificateKey
 
 Apache 설정 검사
 ```
-sudo apachectl configtest -> 
+sudo apachectl configtest -> Syntax OK 나오면 정상
 ```
+
+
+Apach
