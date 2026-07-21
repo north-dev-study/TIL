@@ -158,5 +158,35 @@ curl.exe -I http://[hostname]
 ### 5. HTTPS 실행
 
 5-1. hosts 파일에 도메인 추가
-`C:\Windows\System32\drivers\etc\hosts`
-`172.21.199.101 research.lab.local`
+위치 : `C:\Windows\System32\drivers\etc\hosts`
+추가 : `172.21.199.101 research.lab.local`
+
+도메인 적용 확인
+```
+PS C:\Users\poikl> ipconfig /flushdns
+
+Windows IP 구성
+
+DNS 확인자 캐시를 플러시했습니다.
+PS C:\Users\poikl> ping research.lab.local
+
+Ping research.lab.local [172.21.199.101] 32바이트 데이터 사용:
+172.21.199.101의 응답: 바이트=32 시간<1ms TTL=64
+172.21.199.101의 응답: 바이트=32 시간<1ms TTL=64
+172.21.199.101의 응답: 바이트=32 시간=1ms TTL=64
+172.21.199.101의 응답: 바이트=32 시간=1ms TTL=64
+
+172.21.199.101에 대한 Ping 통계:
+    패킷: 보냄 = 4, 받음 = 4, 손실 = 0 (0% 손실),
+왕복 시간(밀리초):
+    최소 = 0ms, 최대 = 1ms, 평균 = 0ms
+PS C:\Users\poikl> curl.exe -I http://research.lab.local
+HTTP/1.1 200 OK
+Date: Tue, 21 Jul 2026 12:51:11 GMT
+Server: Apache/2.4.63 (Rocky Linux) OpenSSL/3.5.5
+Last-Modified: Mon, 20 Jul 2026 12:41:09 GMT
+ETag: "24-6570a3887fdb0"
+Accept-Ranges: bytes
+Content-Length: 36
+Content-Type: text/html; charset=UTF-8
+```
