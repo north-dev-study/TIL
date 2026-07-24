@@ -316,3 +316,8 @@ sudo openssl x509 -in research-2027.crt -noout -serial -dates
 sudo openssl x509 -in research-2027.crt -pubkey -noout | sha256sum
 sudo openssl pkey -in research-2027.key -pubout | sha256sum
 ```
+
+
+
+6-2. 기존 설정 백업 후 새 인증서 교체
+
