@@ -239,7 +239,7 @@ Apache는 `mod_ssl`과 OpenSSL을 통해 HTTPS를 제공하며, 인증서와 개
 
 
 
-5-4. ssl.conf 에 인증서 경로 연결
+**5-4. ssl.conf 에 인증서 경로 연결**
 ssl.conf 내용 수정(아까 인증서 만든 경로로 수정)
 ```
 결과 :
@@ -280,11 +280,18 @@ HTTPS 통신 성공 !!
 
 
 
----
-
 ## 현재 상황
 
 기존 인증서 : `research-2026.crt/key`
 
 현재 인증서 지정하는 곳 : `/etc/httpd/conf.d/ssl.conf`
+
+
+### 6. 인증서 교체
+
+6-1. 교체용 새 인증서 생성
+
+인증서 디렉토리로 이동
+`cd /etc/pki/tls/research-lab`
+
 
