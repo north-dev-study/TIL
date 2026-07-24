@@ -286,3 +286,5 @@ HTTPS 통신 성공 !!
 
 기존 인증서 : `research-2026.crt/key`
 
+현재 인증서 지정하는 곳 : `/etc/httpd/conf.d/ssl.conf`
+
