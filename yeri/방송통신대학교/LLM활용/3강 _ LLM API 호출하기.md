@@ -21,3 +21,8 @@ setx OPENAI_API_KEY "<mykey>"
 ## OpenAI API 라이브러리
 - python, GO 등 5개 언어로 라이브러리 지원
 
+
+## Responses API
+
+- 텍스트/이미지 입력을 받아 텍스트 출력을 반환하는 기본 API
+
