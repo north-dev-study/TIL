@@ -10,7 +10,8 @@ SSLCertificateFile /etc/pki/tls/research-lab/research-2026.crt
 SSLCertificateKeyFile /etc/pki/tls/research-lab/research-2026.key
 ```
 
-교체 이후엔 재시작 or reload 필요
+교체 이전 백업
+교체 이후 재시작 or reload 필요
 
 
 ### 2. 인증서 저장 디렉토리 (임의 설정)
@@ -22,5 +23,5 @@ SSLCertificateKeyFile /etc/pki/tls/research-lab/research-2026.key
 .key : 외부에 공개하면 안 되는 개인키
 ```
 
-생성 후 
+생성 후 권한 설정 필요. 
 
