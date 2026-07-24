@@ -337,7 +337,7 @@ Apache의 TLS 인증서와 키는 각각 `SSLCertificateFile`과 `SSLCertificate
 
 
 
-6-3. Apache 설정 검사
+**6-3. Apache 설정 검사**
 
 ```
 sudo apachectl configtest 
@@ -348,4 +348,7 @@ sudo apachectl configtest
 ![](../../assets/Pasted%20image%2020260724151250.png)
 
 
-6-4. 
+
+
+**6-4. Apache 재시작 (graceful reload)**
+
