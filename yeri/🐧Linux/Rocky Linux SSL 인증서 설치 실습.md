@@ -278,3 +278,11 @@ HTTPS 통신 성공 !!
 ![](../../assets/Pasted%20image%2020260721222237.png)
 
 
+
+
+---
+
+## 현재 상황
+
+기존 인증서 : `research-2026.crt/key`
+
