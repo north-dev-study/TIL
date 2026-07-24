@@ -12,8 +12,11 @@
 https://platform.openai.com/api-keys
 여기서 API keys > 권한 All 로 해서 발급. 발급 후 생성된 시크릿 키는 개인소장
 
-windows 변수 저장
+windows 변수 저장 (나중에 colab에서 가져다가 쓰기위해)
 ```
 setx OPENAI_API_KEY "<mykey>"
 ```
+
+
+## OpenAI API 라이브러리
 
