@@ -344,3 +344,8 @@ sudo apachectl configtest
 결과 : Syntax OK
 ```
 
+파일 경로 맞는지 한번더 확인
+![](../../assets/Pasted%20image%2020260724151250.png)
+
+
+6-4. 
