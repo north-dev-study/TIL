@@ -352,11 +352,20 @@ sudo apachectl configtest
 
 **6-4. Apache 재시작 (graceful reload)**
 
+graceful reload
+`sudo apachectl graceful`
+
+status에서 상태 확인
+`sudo systemctl status httpd`
+
+이렇게 나오면 정상
+```
+Loaded: loaded (...; enabled)
+Active: active (running)
+```
 
 
-
-
-인증서 교체 확인
+**6-5. 인증서 교체 확인**
 ```
 현재 서버가 제공중인 인증서
 echo | openssl s_client -connect localhost:443 -servername research.lab.local 2>/dev/null | openssl x509 -noout -subject -issuer -serial -dates
