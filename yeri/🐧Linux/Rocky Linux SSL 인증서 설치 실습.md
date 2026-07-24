@@ -378,3 +378,21 @@ sudo openssl x509 -in /etc/pki/tls/research-lab/research-2027.crt -noout -subjec
 ![](../../assets/Pasted%20image%2020260724152209.png)
 
 요기서 serial, notBefore, notAfter 값이 같으면 성공
+
+
+
+**6-6. HTTPS 응답 정상 확인**
+```
+PS C:\Users\poikl> curl.exe -k -I https://research.lab.local
+HTTP/1.1 200 OK
+Date: Fri, 24 Jul 2026 06:18:10 GMT
+Server: Apache/2.4.63 (Rocky Linux) OpenSSL/3.5.5
+Last-Modified: Mon, 20 Jul 2026 12:41:09 GMT
+ETag: "24-6570a3887fdb0"
+Accept-Ranges: bytes
+Content-Length: 36
+Content-Type: text/html; charset=UTF-8
+```
+
+
+
