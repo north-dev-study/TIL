@@ -25,4 +25,4 @@ setx OPENAI_API_KEY "<mykey>"
 ## Responses API
 
 - 텍스트/이미지 입력을 받아 텍스트 출력을 반환하는 기본 API
-
+- Response output은 content 안에 들어감
