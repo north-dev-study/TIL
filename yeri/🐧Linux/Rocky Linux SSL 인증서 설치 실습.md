@@ -1,9 +1,9 @@
 ### 0. 구성형태
 ```
-Windows 11
+Windows 11 Pro
  ├─ 웹 브라우저 / curl
  └─ Hyper-V 가상머신
-      └─ Rocky Linux 9
+      └─ Rocky Linux 10.2 Minimal
            ├─ Apache httpd
            ├─ mod_ssl
            ├─ OpenSSL
@@ -11,6 +11,23 @@ Windows 11
 ```
 
 **Windows 11 안에 Rocky Linux 가상머신을 만들고**, 그 안에 Apache와 `mod_ssl`을 설치한 뒤 **자체 인증기관(CA)으로 발급한 인증서 두 세트**를 번갈아 적용해 봄
+
+
+```
+Rocky Linux VM 설치
+→ 네트워크 연결
+→ Apache·mod_ssl·OpenSSL 설치
+→ 방화벽 80/443 허용
+→ HTTP 접속 확인
+→ 자체 서명 SSL 인증서 생성
+→ Apache에 인증서 연결
+→ HTTPS 접속 확인
+→ 교체용 새 인증서 생성
+→ 인증서와 개인키 일치 검사
+→ ssl.conf 경로 변경
+→ graceful reload
+→ 실제 제공 인증서 비교 확인
+```
 
 ### 1. rocky linux 다운로드
 https://rockylinux.org/download
@@ -239,7 +256,7 @@ Apache는 `mod_ssl`과 OpenSSL을 통해 HTTPS를 제공하며, 인증서와 개
 
 
 
-5-4. ssl.conf 에 인증서 경로 연결
+**5-4. ssl.conf 에 인증서 경로 연결**
 ssl.conf 내용 수정(아까 인증서 만든 경로로 수정)
 ```
 결과 :
@@ -276,3 +293,117 @@ curl.exe -k -I https://research.lab.local
 HTTPS 통신 성공 !!
 
 ![](../../assets/Pasted%20image%2020260721222237.png)
+
+
+
+
+
+### 6. 인증서 교체
+
+**6-1. 교체용 새 인증서 생성**
+
+아까 생성해놓은 인증서 디렉토리로 이동
+`cd /etc/pki/tls/research-lab`
+
+
+새 개인키와 인증서 생성 / 권한설정
+```
+sudo openssl req -x509 -nodes -newkey rsa:2048 -keyout research-2027.key -out research-2027.crt -days 730 -subj "/C=KR/O=SSL-Lab/CN=research.lab.local" -addext "subjectAltName=DNS:research.lab.local,IP:172.21.199.101"
+
+sudo chmod 600 research-2027.key
+sudo chmod 644 research-2027.crt
+```
+
+
+기존 인증서와 새 인증서의 시리얼/유효기간 비교 > 달라야 정상
+```
+sudo openssl x509 -in research-2026.crt -noout -serial -dates
+sudo openssl x509 -in research-2027.crt -noout -serial -dates
+```
+
+
+새 인증서와 개인키가 서로 맞는지 확인. 해시값이 같으면 정상
+```
+sudo openssl x509 -in research-2027.crt -pubkey -noout | sha256sum
+sudo openssl pkey -in research-2027.key -pubout | sha256sum
+```
+
+
+
+**6-2. 기존 설정 백업 후 새 인증서 교체**
+
+기존 ssl 파일 복제해 백업
+```
+sudo cp -a /etc/httpd/conf.d/ssl.conf /etc/httpd/conf.d/ssl.conf.20260724
+```
+
+
+ssl.conf 파일 경로 인증서 변경
+`sudo vi ssl.conf` 해서 아래 부분 변경
+
+![](../../assets/Pasted%20image%2020260724150837.png)
+
+
+Apache의 TLS 인증서와 키는 각각 `SSLCertificateFile`과 `SSLCertificateKeyFile` 설정으로 지정됨
+
+
+
+**6-3. Apache 설정 검사**
+
+```
+sudo apachectl configtest 
+결과 : Syntax OK
+```
+
+파일 경로 맞는지 한번더 확인
+![](../../assets/Pasted%20image%2020260724151250.png)
+
+
+
+
+**6-4. Apache 재시작 (graceful reload)**
+
+graceful reload
+`sudo apachectl graceful`
+
+status에서 상태 확인
+`sudo systemctl status httpd`
+
+이렇게 나오면 정상
+```
+Loaded: loaded (...; enabled)
+Active: active (running)
+```
+
+
+**6-5. 인증서 교체 확인**
+```
+현재 서버가 제공중인 인증서
+echo | openssl s_client -connect localhost:443 -servername research.lab.local 2>/dev/null | openssl x509 -noout -subject -issuer -serial -dates
+
+교체한 새 인증서 
+sudo openssl x509 -in /etc/pki/tls/research-lab/research-2027.crt -noout -subject -issuer -serial -dates
+
+```
+
+![](../../assets/Pasted%20image%2020260724152209.png)
+
+요기서 serial, notBefore, notAfter 값이 같으면 성공
+
+
+
+**6-6. HTTPS 응답 정상 확인**
+```
+PS C:\Users\poikl> curl.exe -k -I https://research.lab.local
+HTTP/1.1 200 OK
+Date: Fri, 24 Jul 2026 06:18:10 GMT
+Server: Apache/2.4.63 (Rocky Linux) OpenSSL/3.5.5
+Last-Modified: Mon, 20 Jul 2026 12:41:09 GMT
+ETag: "24-6570a3887fdb0"
+Accept-Ranges: bytes
+Content-Length: 36
+Content-Type: text/html; charset=UTF-8
+```
+
+
+
