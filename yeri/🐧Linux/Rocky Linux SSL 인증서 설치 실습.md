@@ -352,3 +352,20 @@ sudo apachectl configtest
 
 **6-4. Apache 재시작 (graceful reload)**
 
+
+
+
+
+인증서 교체 확인
+```
+현재 서버가 제공중인 인증서
+echo | openssl s_client -connect localhost:443 -servername research.lab.local 2>/dev/null | openssl x509 -noout -subject -issuer -serial -dates
+
+교체한 새 인증서 
+sudo openssl x509 -in /etc/pki/tls/research-lab/research-2027.crt -noout -subject -issuer -serial -dates
+
+```
+
+![](../../assets/Pasted%20image%2020260724152209.png)
+
+요기서 serial, notBefore, notAfter 값이 같으면 성공
