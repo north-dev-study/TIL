@@ -333,3 +333,6 @@ ssl.conf 파일 경로 인증서 변경
 ![](../../assets/Pasted%20image%2020260724150837.png)
 
 
+Apache의 TLS 인증서와 키는 각각 `SSLCertificateFile`과 `SSLCertificateKeyFile` 설정으로 지정됨
+
+
