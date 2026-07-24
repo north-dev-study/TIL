@@ -12,6 +12,10 @@ SSLCertificateKeyFile /etc/pki/tls/research-lab/research-2026.key
 
 교체 이전 백업
 교체 이후 재시작 or reload 필요
+```
+sudo apachectl configtest
+sudo systemctl reload httpd
+```
 
 
 ### 2. 인증서 저장 디렉토리 (임의 설정)
