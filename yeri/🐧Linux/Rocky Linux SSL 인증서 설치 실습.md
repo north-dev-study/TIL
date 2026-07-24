@@ -304,10 +304,15 @@ sudo chmod 644 research-2027.crt
 ```
 
 
-기존 인증서와 시리얼/유효기간 비교 > 달라야 정상
+기존 인증서와 새 인증서의 시리얼/유효기간 비교 > 달라야 정상
 ```
 sudo openssl x509 -in research-2026.crt -noout -serial -dates
 sudo openssl x509 -in research-2027.crt -noout -serial -dates
 ```
 
 
+새 인증서와 개인키가 서로 맞는지 확인. 해시값이 같으면 정상
+```
+sudo openssl x509 -in research-2027.crt -pubkey -noout | sha256sum
+sudo openssl pkey -in research-2027.key -pubout | sha256sum
+```
