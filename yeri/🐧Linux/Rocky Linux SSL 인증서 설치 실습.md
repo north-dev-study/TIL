@@ -3,7 +3,7 @@
 Windows 11
  ├─ 웹 브라우저 / curl
  └─ Hyper-V 가상머신
-      └─ Rocky Linux 9
+      └─ Rocky Linux 10.2 Minimal
            ├─ Apache httpd
            ├─ mod_ssl
            ├─ OpenSSL
@@ -279,12 +279,6 @@ HTTPS 통신 성공 !!
 
 
 
-
-## 현재 상황
-
-기존 인증서 : `research-2026.crt/key`
-
-현재 인증서 지정하는 곳 : `/etc/httpd/conf.d/ssl.conf`
 
 
 ### 6. 인증서 교체
