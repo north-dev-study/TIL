@@ -326,4 +326,10 @@ sudo openssl pkey -in research-2027.key -pubout | sha256sum
 sudo cp -a /etc/httpd/conf.d/ssl.conf /etc/httpd/conf.d/ssl.conf.20260724
 ```
 
+
+ssl.conf 파일 경로 인증서 변경
+`sudo vi ssl.conf` 해서 아래 부분 변경
+
 ![](../../assets/Pasted%20image%2020260724150837.png)
+
+
