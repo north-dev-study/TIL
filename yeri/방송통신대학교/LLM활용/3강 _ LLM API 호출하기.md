@@ -19,4 +19,5 @@ setx OPENAI_API_KEY "<mykey>"
 
 
 ## OpenAI API 라이브러리
+- python, GO 등 5개 언어로 라이브러리 지원
 
