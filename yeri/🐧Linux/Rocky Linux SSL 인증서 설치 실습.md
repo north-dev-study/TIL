@@ -291,7 +291,13 @@ HTTPS 통신 성공 !!
 
 6-1. 교체용 새 인증서 생성
 
-인증서 디렉토리로 이동
+아까 생성해놓은 인증서 디렉토리로 이동
 `cd /etc/pki/tls/research-lab`
+
+
+새 개인키와 인증서 생성
+```
+sudo openssl req -x509 -nodes -newkey rsa:2048 -keyout research-2027.key -out research-2027.crt -days 730 -subj "/C=KR/O=SSL-Lab/CN=research.lab.local" -addext "subjectAltName=DNS:research.lab.local,IP:172.21.199.101"
+```
 
 
