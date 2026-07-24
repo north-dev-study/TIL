@@ -1,6 +1,6 @@
 ### 0. 구성형태
 ```
-Windows 11
+Windows 11 Pro
  ├─ 웹 브라우저 / curl
  └─ Hyper-V 가상머신
       └─ Rocky Linux 10.2 Minimal
@@ -11,6 +11,23 @@ Windows 11
 ```
 
 **Windows 11 안에 Rocky Linux 가상머신을 만들고**, 그 안에 Apache와 `mod_ssl`을 설치한 뒤 **자체 인증기관(CA)으로 발급한 인증서 두 세트**를 번갈아 적용해 봄
+
+
+```
+Rocky Linux VM 설치
+→ 네트워크 연결
+→ Apache·mod_ssl·OpenSSL 설치
+→ 방화벽 80/443 허용
+→ HTTP 접속 확인
+→ 자체 서명 SSL 인증서 생성
+→ Apache에 인증서 연결
+→ HTTPS 접속 확인
+→ 교체용 새 인증서 생성
+→ 인증서와 개인키 일치 검사
+→ ssl.conf 경로 변경
+→ graceful reload
+→ 실제 제공 인증서 비교 확인
+```
 
 ### 1. rocky linux 다운로드
 https://rockylinux.org/download
