@@ -10,4 +10,10 @@
 ## OpenAI key 발급
 
 https://platform.openai.com/api-keys
-여기서 API keys > 
+여기서 API keys > 권한 All 로 해서 발급. 발급 후 생성된 시크릿 키는 개인소장
+
+windows 변수 저장
+```
+setx OPENAI_API_KEY "<mykey>"
+```
+
