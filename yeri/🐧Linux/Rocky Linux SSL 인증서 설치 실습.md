@@ -319,7 +319,7 @@ sudo openssl pkey -in research-2027.key -pubout | sha256sum
 
 
 
-6-2. 기존 설정 백업 후 새 인증서 교체
+**6-2. 기존 설정 백업 후 새 인증서 교체**
 
 기존 ssl 파일 복제해 백업
 ```
@@ -335,4 +335,12 @@ ssl.conf 파일 경로 인증서 변경
 
 Apache의 TLS 인증서와 키는 각각 `SSLCertificateFile`과 `SSLCertificateKeyFile` 설정으로 지정됨
 
+
+
+6-3. Apache 설정 검사
+
+```
+sudo apachectl configtest 
+결과 : Syntax OK
+```
 
