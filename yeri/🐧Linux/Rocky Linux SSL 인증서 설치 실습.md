@@ -321,3 +321,9 @@ sudo openssl pkey -in research-2027.key -pubout | sha256sum
 
 6-2. 기존 설정 백업 후 새 인증서 교체
 
+기존 ssl 파일 복제해 백업
+```
+sudo cp -a /etc/httpd/conf.d/ssl.conf /etc/httpd/conf.d/ssl.conf.20260724
+```
+
+![](../../assets/Pasted%20image%2020260724150837.png)
