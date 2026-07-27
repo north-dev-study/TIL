@@ -49,7 +49,8 @@ Java는 1:1 스레딩 모델로 Thread를 생성
 
 ### Tomcat Thread pool setting
 
-![](../../assets/Pasted%20image%2020260727180007.png)
+![418](../../assets/Pasted%20image%2020260727180007.png)
 
 > - accept-count : 처리 중인 요청이 너무 많을 때. 요청을 잠시 대기시키는 대기열의 크기
 > - max-threads : 스레드 풀에 만들 수 있는 스레드의 최대 개수
+> - max-connections : 톰캣이 최대로 처리할 수 있는 커넥션의 수. 요청이 들어오면 톰캣의 Connector가 Connection을 생성하면서 요청된 작업을 ThreadPool의 Thread와 연결
