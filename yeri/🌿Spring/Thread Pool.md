@@ -19,4 +19,7 @@ Java는 1:1 스레딩 모델로 Thread를 생성
 > Thread 생성은 Kernel 레벨에서 생성하기에 자원이 많이 소모되는 작업
 
 Kernel Thread 생성 단계
-1. 커널 스렏
+1. 커널 스레드 ID(식별자) 및 TCB(Task Control Block) 생성
+2. 독립적인 스택 메모리 할당
+3. 스레드 상태 설정 (Ready)
+4. 스케쥴러의 ready 큐에 등록
