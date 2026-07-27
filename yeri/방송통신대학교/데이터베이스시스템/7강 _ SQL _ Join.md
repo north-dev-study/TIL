@@ -12,7 +12,7 @@ JOIN : 일시적으로 하나의 레코드로 만드는 것
 ```ANSI 방식
 SELECT [COLUMN]
 FROM [TABLE1] INNER JOIN [TABLE2]
-ON [조인조건]
+ON [TABLE1.COLUMN] = [TABLE2.COLUMN]
 ```
 
 ```Oracle
@@ -20,3 +20,6 @@ SELECT [COLUMN]
 FROM [TABLE1], [TABLE2]
 WHERE [TABLE1.COLUMN] = [TABLE2.COLUMN]
 ```
+
+국제표준 방식과 오라클 방식이 다름(오라클은 WHERE 절 안에 ON 절 조건을 넣음)
+
