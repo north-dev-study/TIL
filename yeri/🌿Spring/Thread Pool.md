@@ -56,3 +56,4 @@ Java는 1:1 스레딩 모델로 Thread를 생성
 > - max-connections : 톰캣이 최대로 처리할 수 있는 커넥션의 수. 요청이 들어오면 톰캣의 Connector가 Connection을 생성하면서 요청된 작업을 ThreadPool의 Thread와 연결
 > - min-spare : 항상 유지하는 최소 예비 스레드 수 (서버 시작히 이정도는 무조건 생성)
 > - max-queue-capacity : 
+> - 
