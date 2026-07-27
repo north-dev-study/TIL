@@ -47,3 +47,9 @@ Java는 1:1 스레딩 모델로 Thread를 생성
 
 - Spring Boot에서는 내장 tomcat에서 Thread Pool을 설정해 사용 가능
 
+### Tomcat Thread pool setting
+
+![](../../assets/Pasted%20image%2020260727180007.png)
+
+> - accept-count : 처리 중인 요청이 너무 많을 때. 요청을 잠시 대기시키는 대기열의 크기
+> - max-threads : 스레드 풀에 만들 수 있는 스레드의 최대 개수
