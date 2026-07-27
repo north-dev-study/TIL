@@ -14,6 +14,9 @@ Request가 동시다발적으로 서버에 들어왔을때, 서버가 처리하�
 
 
 Java는 1:1 스레딩 모델로 Thread를 생성
-유저 Thread 하나당 OS Thread 하나가 대응됨
+유저 Thread 하나당 OS Thread 하나가 대응됨(JVM이 요청)
 새로운 Thread 생성시마다 Kernel Thread 생성
-JVM은 새로운 스레드 객체를 생성
+> Thread 생성은 Kernel 레벨에서 생성하기에 자원이 많이 소모되는 작업
+
+Kernel Thread 생성 단계
+1. 커널 스렏
