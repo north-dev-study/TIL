@@ -10,6 +10,9 @@ JOIN : 일시적으로 하나의 레코드로 만드는 것
 두 개 이상의 테이블에서 조인 조건을 만족하는 레코드만 결합하여 출력 결과에 포함
 
 ```
-SELECT 
-FROM []
+SELECT [COLUMN]
+FROM [TABLE] INNER JOIN [TABLE2]
+ON [조인조건]
 ```
+
+
