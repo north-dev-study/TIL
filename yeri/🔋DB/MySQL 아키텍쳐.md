@@ -33,4 +33,4 @@ MySQL 서버 : **MySQL 엔진 + 스토리지 엔진**
 
 ## Storage 엔진 실행흐름
 
-- MyS
+- MySQL은 여러 Storage 엔진을 지원한다 (디폴트는 InnoDB)
