@@ -34,3 +34,22 @@ MySQL 서버 : **MySQL 엔진 + 스토리지 엔진**
 ## Storage 엔진 실행흐름
 
 - MySQL은 여러 Storage 엔진을 지원한다 (디폴트는 InnoDB)
+- Storge 엔진 선택은 테이블 생성 시점에 선택 (or ALTER TABLE로도 가능)
+
+```
+CREATE TABLE orders (
+    id BIGINT PRIMARY KEY
+) ENGINE = InnoDB;
+
+CREATE TABLE temp_cache (
+    id BIGINT PRIMARY KEY,
+    value VARCHAR(100)
+) ENGINE = MEMORY;
+
+
+MySQL 서버
+├─ orders 테이블      → InnoDB로 저장·조회
+└─ temp_cache 테이블  → MEMORY 엔진으로 저장·조회
+```
+
+
