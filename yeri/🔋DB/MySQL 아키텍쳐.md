@@ -5,8 +5,8 @@
 ## MySQL 서버 흐름
 
 MySQL 서버 : **MySQL 엔진 + 스토리지 엔진**
-- MySQL Engine : 요청 처리 역할
-- Storage Engine : 필요한 데이터를 하드웨어에서 가져옴
+- MySQL Engine : 요청 처리 역할 (요청 쿼리에 대해 어떻게 실행할지 결정, 실행)
+- Storage Engine : 디스크와 통신하며필요한 데이터를 하드웨어에서 가져
 
 ![](../../assets/Pasted%20image%2020260728143723.png)
 
