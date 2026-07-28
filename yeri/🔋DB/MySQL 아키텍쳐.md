@@ -53,3 +53,4 @@ MySQL 서버
 ```
 
 
+- InnoDB는 MVCC(Multi-Version Concurrency Control)로 동시성을 관리함 (git처럼 데이터를 버전관리함)
