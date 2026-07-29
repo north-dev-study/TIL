@@ -71,5 +71,10 @@ content-type:application/json
 ![](../../assets/Pasted%20image%2020260729112231.png)
 
 
+### Spring 내부 프로세스
+![](../../assets/Pasted%20image%2020260729112526.png)
 
-
+- inboundChannel : 텍스트 형태의 메세지를 STOMP 형식으로 파싱, 헤드에서 경로 확인
+- Message Handler : 경로의 컨트롤러. 로직 실행 후 새로운 메세지 반환
+- brokerChannel : 모든 채널의 구독 경로 확인, 경로 매칭 채널에 메시지 전송
+- outboundChannel : 클라이언트 응답 전용 채널. 전달 받은 메세지를 구독한 client에게 전달
