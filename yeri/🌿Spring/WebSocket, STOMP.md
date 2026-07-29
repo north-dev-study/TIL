@@ -34,3 +34,19 @@ Sec-Websocket-Version: 13
 -> **client / server가 이해할 수 있는 구조화된 형식 필요!**
 
 
+## STOMP (Simple Text Oriented Messaging Protocol)
+
+- 메세지 형식 문제를 해결하기 위해 Spring에서 사용하는 방식
+- 간단한 텍스트 기반 프로토콜
+
+```
+COMMAND
+header1:value1
+header2:value2
+
+Body^@
+```
+
+COMMAND : 무엇을 할 것인지 지시하는 명령어. 메세지 전송, 연결, 해제와 같은 명령어
+header1 : 명령어에 대한 추가 정보나 옵션 / 메세지 경로나 내용 형식
+Boday : 실제 전송할 메시지 내용
