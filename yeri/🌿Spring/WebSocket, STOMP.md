@@ -39,6 +39,8 @@ Sec-Websocket-Version: 13
 - 메세지 형식 문제를 해결하기 위해 Spring에서 사용하는 방식
 - 간단한 텍스트 기반 프로토콜
 
+### STOMP 형식
+
 ```
 COMMAND
 header1:value1
@@ -50,3 +52,24 @@ Body^@
 COMMAND : 무엇을 할 것인지 지시하는 명령어. 메세지 전송, 연결, 해제와 같은 명령어
 header1 : 명령어에 대한 추가 정보나 옵션 / 메세지 경로나 내용 형식
 Boday : 실제 전송할 메시지 내용
+
+**예시**
+```
+SEND
+destination:/topic/room1
+content-type:application/json
+
+{"sender":"Pub","message":"안녕 친구들!"}
+```
+
+
+### Pub / Sub 구조
+- 이 구조를 통해 하나의 메세지를 여러 사용자에게 동시 전달 가능
+- Publisher (발행자), Subscriber(대상자) - 여러명 가능, Topic(메세지 분류 경로)
+- Subscriber들이 관심있는 Topic을 구독하면, 해당 토픽의 메세지를 모두 받을 수 있음
+
+![](../../assets/Pasted%20image%2020260729112231.png)
+
+
+
+
