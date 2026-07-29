@@ -26,3 +26,11 @@ Sec-Websocket-Version: 13
 
 
 - 웹소켓 생성 후 server 응답 `HTTP/1.1 101 Switching Protocols`
+
+## 웹소켓 메세지 전달
+
+- 웹소켓은 바이너리 or 텍스트 데이터만 전송 /  메세지 형식은 제공 X
+- 서버는 정해진 형식이 없기 때문에 client가 보낸 메세지를 어떻게 해석할지 모름
+-> **client / server가 이해할 수 있는 구조화된 형식 필요!**
+
+
