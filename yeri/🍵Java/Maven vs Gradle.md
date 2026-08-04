@@ -20,6 +20,16 @@
 
 ## Gradle
 
-- 안드로이드에서 개발한 공식 빌드 도구
-- Groovy 기반 스크립트 방식 활용, build.gradle 빌드 파일 생성
+- 안드로이드 개발을 위한 공식 빌드 도구
+- Groovy 기반 스크립트 방식 활용, **build.gradle** 빌드 파일 생성
 - 스크립트를 통해 여러가지 상황에 적합한 빌드 생성 가능
+
+```
+my-project/
+|----- build.gradle // 메인 Gradle 빌드 스크립트 파일
+|----- setting.gradle // 멀티 프로젝트 빌드 설정 파일(필요시)
+|----- gradle/
+|       |----- wrapper/     // Gradle Wrapper 관련 파일들
+|       |----- gradle-ㅈㄱ메ㅔㄷㄱ.ㅓㅁㄱ
+ 
+```
