@@ -7,6 +7,10 @@
 - **POM.xml(Project Object Model)** 파일을 사용해 빌드 설정을 관리
 - 빌드 속도가 느리고 유연성이 부족하다는 단점
 
+```
+my-project/
+|----- pom.xml 
+```
 ### Maven CoC(Convention over Configuration)
 - 설정파일에 ‘소스 파일의 위치’나 컴파일한 결과를 저장할 ‘Target 폴더의 위치’를 지정하지 않음
 - 일종의 미리 정해둔 ‘관습’ 의거해서 어디에 소스 파일이 위치할 것인지 어디에 컴파일한 파일을 만들것인지를 미리 정해두고 그 위치에 소스파일이 있으면 그것을 근거로 빌드(컴파일) 작업을 진행
@@ -23,13 +27,18 @@
 - 안드로이드 개발을 위한 공식 빌드 도구
 - Groovy 기반 스크립트 방식 활용, **build.gradle** 빌드 파일 생성
 - 스크립트를 통해 여러가지 상황에 적합한 빌드 생성 가능
+- 캐싱 / 병렬빌드 가능
 
 ```
 my-project/
 |----- build.gradle // 메인 Gradle 빌드 스크립트 파일
 |----- setting.gradle // 멀티 프로젝트 빌드 설정 파일(필요시)
 |----- gradle/
-|       |----- wrapper/     // Gradle Wrapper 관련 파일들
-|       |----- gradle-ㅈㄱ메ㅔㄷㄱ.ㅓㅁㄱ
- 
+|       ㄴ wrapper/     // Gradle Wrapper 관련 파일들
+|            ㄴ gradle-wrapper.jar
+|            ㄴ gradle-wrapper.properties
+|----- gradlew     // Unix계열 운영체제용 Gradle Wrapper 실행 파일
+|----- gradlew.bat // Windows 운영체제용 Gradle Wrapper 실행 파일
 ```
+
+
