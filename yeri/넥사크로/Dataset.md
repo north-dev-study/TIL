@@ -11,14 +11,14 @@
 - xml 구조로 되어있음
 
 ```
-<Dataset id="ds_member">
-	<ColumnInfo>
+<Dataset id="ds_member"> // id : ds name
+	<ColumnInfo> // 생성한 컬럼 메타데이터
 	   <Column id="name" size="5" type="STRING"/>
 	   <Column id="age" size="10" type="STRING"/>
 	</ColumnInfo>
-	<Rows>
+	<Rows> // 행 데이터
 	   <Row>
-			<Col id="name">길동</Col>
+			<Col id="name">길동</Col> // 컬럼 데이터
 			<Col id="age">12</Col>
 	   </Row>
 	   <Row>
@@ -28,4 +28,7 @@
 	</Rows>
  </Dataset>
 ```
+
+
+- spring과 연동할떄, 하나의 row는 java의 Map과 매핑 가능
 
