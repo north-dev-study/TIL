@@ -31,4 +31,27 @@
 
 
 - spring과 연동할떄, 하나의 row는 java의 Map과 매핑 가능
+map.key : 'name'
+map.value : '길동'
+
+map.key : 'age'
+map.value : 12
+
+이걸 List<Map<String, Object>> 로 넘기면됨
+
+
+## 메서드
+
+### 필터 기능
+```
+this.ds_my_dataset.filter(" name =='" + name + "' || age == 10 "");
+```
+-> 나이가 10인 사람중에 이름이 변수 name 에 들어있는 값과 비교해서 있으면 dataset에 한 건이 필터링 됨
+
+
+### 데이터셋 확인 : saveXML()
+```
+this.ds_my_dadtaset.saveXML();
+```
+
 
