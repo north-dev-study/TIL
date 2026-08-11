@@ -1,1 +1,5 @@
 .obsidian/*
+
+.classpath
+.project
+*.class
