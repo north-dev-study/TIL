@@ -1,10 +1,7 @@
 > JDBC가 SQL을 실행할 때 사용하는 방식을 지정하는 속성
 
-
- 
 - 프로시저 호출시 : statementType - CALLAVLE
 - 일반 쿼리 실행시 : statementType - PREPARED
-
 
 ### **`PREPARED`** (디폴트)
 - JDBC `PreparedStatement` 사용
@@ -21,6 +18,9 @@
 
 ### **`CALLABLE`**
 - JDBC `CallableStatement` 사용
-- -. 저장 프로시저를 호출하는 데 사용된다. 프로시저의 입력 매개변수와 출력 값을 설정할 수 있으며, 미리 컴파일되어 있어 성능상 이점이 있다. Oracle이나 SQL Server에서 저장 프로시저를 활용할 때 적합하다.
+- 저장 프로시저를 호출하는 데 사용
+- 프로시저의 입력 매개변수와 출력 값을 설정할 수 있음
+- 미리 컴파일되어 있어 성능상 이점이 있음
+- Oracle이나 SQL Server에서 저장 프로시저를 활용할 때 적합
 
 
