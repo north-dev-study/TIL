@@ -39,7 +39,7 @@ public class ThreadStopMainV4 {
 		
 		@Override
 		public void  run() {
-			while(!Thread.interrupted()) { // 인터럽트 상태 변경은 x
+			while(!Thread.interrupted()) { // 인터럽트 상태 변경 o
 				log("작업 중");
 			}
 			
