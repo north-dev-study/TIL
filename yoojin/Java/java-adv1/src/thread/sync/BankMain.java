@@ -41,7 +41,39 @@ import static util.ThreadUtils.sleep;
 public class BankMain {
 	
 	public static void main(String[] args) throws InterruptedException {
-		BankAccount account = new BankAccountV1(1000);
+//		BankAccount account = new BankAccountV1(1000);
+		
+		/**
+		 * BankAccountV2의 메서드에 synchronized 키워드 추가
+		 * 
+		 * [       t1] 거래 시작: BankAccountV2
+		 * [       t1] [검증 시작] 출금액: 800, 잔액: 1000
+		 * [       t1] [검증 완료] 출금액: 800, 잔액: 1000
+		 * [     main] t1 state: TIMED_WAITING
+		 * [     main] t2 state: BLOCKED
+		 * [       t1] [출금 완료] 출금액: 800, 잔액: 200
+		 * [       t1] 거래 종료
+		 * [       t2] 거래 시작: BankAccountV2
+		 * [       t2] [검증 시작] 출금액: 800, 잔액: 200
+		 * [       t2] [검증 실패] 출금액: 800, 잔액: 200
+		 * [     main] 최종 잔액: 200
+		 * 
+		 * 모든 객체(인스턴스)는 내부에 자신만의 락(lock)을 가지고 있다.
+		 * 스레드가 synchronized 키워드가 있는 메서드에 진입하려면 반드시
+		 * 해당 인스턴스의 락이 있어야 한다.
+		 * 
+		 * 1) t1 스레드가 먼저 실행되면 먼저 BankAccountV2의 락을 획득한다.
+		 * 2) 이후 t2 스레드가 실행되면 락을 획득할 때까지 BLOCKED 상태로 무한정 대기한다.
+		 * 3) t1 메서드 호출이 모두 끝나면 락을 반납한다.
+		 * 4) t2는 자동으로 락을 획득하고 코드를 실행한다. 이제 잔액이 출금액보다 적으므로 
+		 *    검증 로직을 통과하지 못한다.
+		 * 5) t2는 메서드를 종료하며 락을 반납한다.
+		 * 
+		 * > 락을 획득하는 순서는 보장되지 않는다.
+		 * > volatile을 사용하지 않아도 synchronized 안에서 접근하는 변수의 메모리 가시성
+		 *   문제는 해결된다.
+		 */
+		BankAccount account = new BankAccountV2(1000);
 		
 		Thread t1 = new Thread(new WithdrawTask(account, 800), "t1");
 		Thread t2 = new Thread(new WithdrawTask(account, 800), "t2");
