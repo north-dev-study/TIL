@@ -73,7 +73,29 @@ public class BankMain {
 		 * > volatile을 사용하지 않아도 synchronized 안에서 접근하는 변수의 메모리 가시성
 		 *   문제는 해결된다.
 		 */
-		BankAccount account = new BankAccountV2(1000);
+//		BankAccount account = new BankAccountV2(1000);
+		
+		/**
+		 * synchronized 코드 블럭
+		 * : BankAccountV2에서 적용한 synchronized 적용 범위는 메서드 전체이다.
+		 *   따라서 여러 스레드가 함께 실행해도 문제없는 "거래 시작", "거래 종료"를 출력하는
+		 *   코드도 한 번에 하나의 스레드만 실행할 수 있다.
+		 *   자바는 이런 문제를 해결하기 위해 synchronized를 메서드 단위가 아니라,
+		 *   특정 코드 블럭에 최적화해서 적용할 수 있는 기능을 제공한다.
+		 * 
+		 * [       t2] 거래 시작: BankAccountV3
+		 * [       t1] 거래 시작: BankAccountV3
+		 * [       t2] [검증 시작] 출금액: 800, 잔액: 1000
+		 * [       t2] [검증 완료] 출금액: 800, 잔액: 1000
+		 * [     main] t1 state: BLOCKED
+		 * [     main] t2 state: TIMED_WAITING
+		 * [       t2] [출금 완료] 출금액: 800, 잔액: 200
+		 * [       t2] 거래 종료
+		 * [       t1] [검증 시작] 출금액: 800, 잔액: 200
+		 * [       t1] [검증 실패] 출금액: 800, 잔액: 200
+		 * [     main] 최종 잔액: 200
+		 */
+		BankAccount account = new BankAccountV3(1000);
 		
 		Thread t1 = new Thread(new WithdrawTask(account, 800), "t1");
 		Thread t2 = new Thread(new WithdrawTask(account, 800), "t2");
