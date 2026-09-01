@@ -6,6 +6,8 @@ import static util.ThreadUtils.sleep;
 import java.util.concurrent.locks.LockSupport;
 
 /**
+ * LockSupport1
+ * 
  * [synchronized의 단점]
  * - 무한 대기: BLOCKED 상태의 스레드는 락이 풀릴 때까지 무한 대기한다.
  * - 공정성: 락이 돌아왔을 때 BLOCKED 상태의 여러 스레드 중에 어떤 스레드가 락을 획득할 지 알 수 없다.
