@@ -95,7 +95,8 @@ public class BankMain {
 		 * [       t1] [검증 실패] 출금액: 800, 잔액: 200
 		 * [     main] 최종 잔액: 200
 		 */
-		BankAccount account = new BankAccountV3(1000);
+//		BankAccount account = new BankAccountV3(1000);
+		BankAccount account = new BankAccountV4(1000);
 		
 		Thread t1 = new Thread(new WithdrawTask(account, 800), "t1");
 		Thread t2 = new Thread(new WithdrawTask(account, 800), "t2");
