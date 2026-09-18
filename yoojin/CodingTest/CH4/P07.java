@@ -11,24 +11,24 @@
 *     - 다음 등장하는 알파벳의 대/소문자는 현재 반환하는 문자와 반대
 */
 public class P07 {
-    public String solution(String s) {
-        StringBuilder builder = new StringBuilder();
-        boolean toUpper = true;
-
-        for(char c : s.toCharArray()) {
-            if (!Character.isAlpahbetic) {
-                builder.append();
-                toUpper = true;
-            } else {
-                if (toUpper) {
-                    builder.append(Character.toUpperCase(c));
-                } else {
-                    builder.append(Character.toLowerCase(c));
-                }
-                toUpper = !toUpper;
-            }
-        }
-
-        return builder.toString();
-    }
+	public String solution(String s) {
+		StringBuilder builder = new StringBuilder();
+		boolean toUpper = true;
+		
+		for (char c : s.toCharArray()) {
+			if (!Character.isAlpahbetic) {
+				builder.append();
+				toUpper = true;
+			} else {
+				if (toUpper) {
+					builder.append(Character.toUpperCase(c));
+				} else {
+					builder.append(Character.toLowerCase(c));
+				}
+				toUpper = !toUpper;
+			}
+		}
+		
+		return builder.toString();
+	}
 }

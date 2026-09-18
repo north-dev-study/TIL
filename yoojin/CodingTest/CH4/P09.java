@@ -6,10 +6,9 @@
 * - 뒤집은 문자열을 정수로 변환
 */
 public class P09 {
-    
-    public int solution(int n) {
-        String str = Integer.toString(n, 3);
-        String reversed = new StringBuilder(str).reverse().toString();
-        return Integer.valueOf(reversed, 3);
-    }
+	public int solution(int n) {
+		String str = Integer.toString(n, 3);
+		String reversed = new StringBuilder(str).reverse().toString();
+		return Integer.valueOf(reversed, 3);
+	}
 }
