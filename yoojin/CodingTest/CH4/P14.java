@@ -1,7 +1,11 @@
+package CH4;
+
 /**
+ * CH4 문자열
+ * 
  * 14) 신규 아이디 추천
  */
-public class P11 {
+public class P14 {
 	public String solution(String newId) {
 		// 1단계 - 모든 대문자를 대응되는 소문자로 치환
 		newId = newId.toLowerCase();
@@ -22,7 +26,7 @@ public class P11 {
 		
 		// 6단계 - 길이가 16자 이상이라면, 첫 15개의 문자를 제외한 나머지 문자는 제거
 		if (newId.length() >= 16) {
-			newId = newId.subString(0, 15);
+			newId = newId.substring(0, 15);
 			newId = newId.replaceAll("\\.+$", ""); // .으로 끝나는 거 한번 더 제거
 		}
 		

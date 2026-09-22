@@ -1,6 +1,8 @@
 package CH3;
 
 /**
+ * CH3 배열
+ * 
  * 4) 행렬의 곱셈
  */
 public class P04 {

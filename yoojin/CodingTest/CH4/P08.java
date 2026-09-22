@@ -1,4 +1,11 @@
+package CH4;
+
+import java.util.ArrayList;
+import java.util.List;
+
 /**
+ * CH4 문자열
+ * 
 * 8) 문자열 압축
 * 
 * - 1부터 입력 문자열 s의 길이만큼 자를 문자열의 길이를 설정하며 반복

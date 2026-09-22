@@ -1,4 +1,8 @@
+package CH4;
+
 /**
+ * CH4 문자열
+ * 
  * 11) 문자열 내 p와 y의 개수
  */
 public class P11 {
@@ -11,17 +15,17 @@ public class P11 {
 		return ps == ys;
 	}
 	
-	boolean solution(String s) {
-		int ps = 0;
-		int ys = 0;
-		
-		for (char c : s.toCharArray()) {
-			switch (c) {
-			case 'p', 'P' -> ps++;
-			case 'y', 'Y' -> ys++;
-			}
-		}
-		
-		return ps == ys;
-	}
+//	boolean solution(String s) {
+//		int ps = 0;
+//		int ys = 0;
+//		
+//		for (char c : s.toCharArray()) {
+//			switch (c) {
+//			case 'p', 'P' -> ps++;
+//			case 'y', 'Y' -> ys++;
+//			}
+//		}
+//		
+//		return ps == ys;
+//	}
 }

@@ -1,4 +1,8 @@
+package CH4;
+
 /**
+ * CH4 문자열
+ * 
  * 5) 자연수 뒤집어 배열로 만들기
  * 
  * - 입력받은 숫자를 문자열로 반환
@@ -8,7 +12,7 @@
  */
 public class P05 {
 	public int[] solution(long n) {
-		String str = Long.toString();
+		String str = Long.toString(n);
 		String reversed = new StringBuilder(str).reverse().toString();
 		char[] arr = reversed.toCharArray();
 		

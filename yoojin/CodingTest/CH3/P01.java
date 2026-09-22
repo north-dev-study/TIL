@@ -5,6 +5,8 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
+ * CH3 배열
+ * 
  * 1) 교점에 별 만들기
  * 
  * - 모든 직선 쌍에 대해 교점의 좌표를 구한 후 정수 좌표만 저장

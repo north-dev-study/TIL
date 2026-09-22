@@ -1,4 +1,8 @@
+package CH4;
+
 /**
+ * CH4 문자열
+ * 
 * 7) 이상한 문자 만들기
 * 
 * - 문자열의 모든 문자에 대해 반복
@@ -16,8 +20,8 @@ public class P07 {
 		boolean toUpper = true;
 		
 		for (char c : s.toCharArray()) {
-			if (!Character.isAlpahbetic) {
-				builder.append();
+			if (!Character.isAlphabetic(c)) {
+				builder.append(c);
 				toUpper = true;
 			} else {
 				if (toUpper) {

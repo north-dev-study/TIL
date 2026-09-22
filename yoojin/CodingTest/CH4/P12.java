@@ -1,7 +1,11 @@
+package CH4;
+
 /**
+ * CH4 문자열
+ * 
  * 12) 숫자 문자열과 영단어
  */
-public class P11 {
+public class P12 {
 	private static final String[] words =
 		{ "zero", "one", "two", "three", "four",
 		"five", "six", "seven", "eight", "nine" };
